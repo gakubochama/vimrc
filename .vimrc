@@ -1,9 +1,10 @@
 " general
 set number
+language messages en_GB
 "set relativenumber
 syntax on
 set backspace=2
-colorscheme torte
+colorscheme habamax
 set foldmethod=indent
 set foldcolumn=1
 autocmd BufRead + normal zR
@@ -19,13 +20,16 @@ noremap <c-j> <c-w><c-j>
 noremap <c-k> <c-w><c-k>
 noremap <c-l> <c-w><c-l>
 inoremap jk <ESC>
+inoremap kj <ESC>
+vnoremap jk <ESC>
+vnoremap kj <ESC>
 
 " plugin
 packloadall
 silent! helptags ALL
 
 " mouse
-set mouse=a
+"set mouse=a
 
 " scroll
 set scroll=4
