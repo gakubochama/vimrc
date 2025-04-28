@@ -17,6 +17,7 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " general
