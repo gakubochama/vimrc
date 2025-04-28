@@ -1,12 +1,33 @@
+" Download and install vim-plug (cross platform).
+if empty(glob(
+    \ '$HOME/' . (has('win32') ? 'vimfiles' : '.vim') . '/autoload/plug.vim'))
+  execute '!curl -fLo ' .
+    \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.vim') . 
+    \ '/autoload/plug.vim --create-dirs ' .
+    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Manage plugins by using vim-plug
+call plug#begin()
+" List your plugins here
+Plug 'junegunn/vim-plug'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-unimpaired'
+call plug#end()
+
 " general
 set number
 language messages en_GB
-"set relativenumber
+colorscheme habamax
+" set relativenumber
 syntax on
 set backspace=2
-colorscheme habamax
-set foldmethod=indent
-set foldcolumn=1
+" set foldmethod=indent
+" set foldcolumn=1
 autocmd BufRead + normal zR
 set wildmenu
 set wildmode=list:longest,full
@@ -15,12 +36,25 @@ set wildmode=list:longest,full
 command! Bd :bp | :sp | :bn | :bd " close a buffer without closing a window
 
 " key mapping
-noremap <c-h> <c-w><c-h>
-noremap <c-j> <c-w><c-j>
-noremap <c-k> <c-w><c-k>
-noremap <c-l> <c-w><c-l>
+" normal mode
+nnoremap ; :
+nnoremap <c-h> <c-w><c-h>
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+" insert mode
 inoremap jk <ESC>
 inoremap kj <ESC>
+inoremap ' ''<esc>i
+inoremap " ""<esc>i
+inoremap ( ()<esc>i
+inoremap { {}<esc>i
+inoremap [ []<esc>i
+" visual mode
 vnoremap jk <ESC>
 vnoremap kj <ESC>
 
