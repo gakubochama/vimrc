@@ -26,8 +26,9 @@ colorscheme habamax
 " set relativenumber
 syntax on
 set backspace=2
-" set foldmethod=indent
-" set foldcolumn=1
+"set foldmethod=indent
+"set foldcolumn=1
+colorscheme habamax
 autocmd BufRead + normal zR
 set wildmenu
 set wildmode=list:longest,full
@@ -63,7 +64,7 @@ packloadall
 silent! helptags ALL
 
 " mouse
-"set mouse=a
+set mouse=
 
 " scroll
 set scroll=4
