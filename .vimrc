@@ -1,23 +1,25 @@
-" Download and install vim-plug (cross platform).
-if empty(glob(
-    \ '$HOME/' . (has('win32') ? 'vimfiles' : '.vim') . '/autoload/plug.vim'))
-  execute '!curl -fLo ' .
-    \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.vim') . 
-    \ '/autoload/plug.vim --create-dirs ' .
-    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if !has('nvim')
+    " Download and install vim-plug (cross platform).
+    if empty(glob(
+        \ '$HOME/' . (has('win32') ? 'vimfiles' : '.vim') . '/autoload/plug.vim'))
+      execute '!curl -fLo ' .
+        \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.vim') . 
+        \ '/autoload/plug.vim --create-dirs ' .
+        \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+    
+    " Manage plugins by using vim-plug
+    call plug#begin()
+    " List your plugins here
+    Plug 'junegunn/vim-plug'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'preservim/nerdtree'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-unimpaired'
+    call plug#end()
 endif
-
-" Manage plugins by using vim-plug
-call plug#begin()
-" List your plugins here
-Plug 'junegunn/vim-plug'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'preservim/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-unimpaired'
-call plug#end()
 
 " general
 set number
