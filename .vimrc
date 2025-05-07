@@ -23,14 +23,17 @@ endif
 
 " general
 set number
-language messages en_GB
-colorscheme habamax
+if has('win32')
+    language messages en_GB
+    colorscheme habamax
+else
+    colorscheme retrobox
+endif
 " set relativenumber
 syntax on
 set backspace=2
 "set foldmethod=indent
 "set foldcolumn=1
-colorscheme habamax
 autocmd BufRead + normal zR
 set wildmenu
 set wildmode=list:longest,full
